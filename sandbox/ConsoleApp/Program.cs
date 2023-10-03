@@ -1,4 +1,4 @@
-﻿using Sample;
+using Sample;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -85,5 +85,13 @@ namespace Sample
 
     [UnitOf(typeof(string), UnitGenerateOptions.ParseMethod)]
     public readonly partial struct StringId { }
-}
 
+    [UnitOf(typeof(string), UnitGenerateOptions.PrivateConstructor)]
+    public readonly partial struct Colors
+    {
+        public static readonly Colors Red = new Colors("red");
+        public static readonly Colors Green = new Colors("green");
+        public static readonly Colors Blue = new Colors("blue");
+    }
+
+}

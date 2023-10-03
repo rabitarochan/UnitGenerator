@@ -1,4 +1,4 @@
-﻿using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using System;
@@ -157,6 +157,7 @@ namespace UnitGenerator
         WithoutComparisonOperator = 1 << 11,
         JsonConverterDictionaryKeySupport = 1 << 12,
         Normalize = 1 << 13,
+        PrivateConstructor = 1 << 14,
     }
 
     [Flags]
@@ -308,7 +309,7 @@ namespace {{ns}}
 
         public {{innerTypeName}} AsPrimitive() => value;
 
-        public {{unitTypeName}}({{innerTypeName}} value)
+        {{(prop.HasFlag(UnitGenerateOptions.PrivateConstructor) ? "private" : "public")}} {{unitTypeName}}({{innerTypeName}} value)
         {
             this.value = value;
 """);

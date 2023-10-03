@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace UnitGenerator
 {
@@ -21,6 +21,7 @@ namespace UnitGenerator
         WithoutComparisonOperator = 1 << 11,
         JsonConverterDictionaryKeySupport = 1 << 12,
         Normalize = 1 << 13,
+        PrivateConstructor = 1 << 14,
     }
 
     [Flags]
